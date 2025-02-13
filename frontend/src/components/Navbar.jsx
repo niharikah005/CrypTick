@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { AiOutlineClose, AiOutlineMenu } from 'react-icons/ai';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { Menu, X, Twitter, Instagram, Facebook } from 'lucide-react';
 
 const Navbar = () => {
   const [nav, setNav] = useState(false);
@@ -10,48 +10,143 @@ const Navbar = () => {
   };
 
   return (
-    <div className='flex bg-radial text-white bg-black justify-between items-center gap-47 h-22 px-20'>
-      <div className='max-w-30 pt-3 ml-3'>
-        <Link to={`/home`}>
-        <img src="/logo1.png" alt="logo" className='h-full w-full object-contain' />      
-        </Link>
-      </div>
-      <ul className='hidden lg:flex gap-3'>
-        <Link to={`/home`}>
-         <li className='font-semibold text-xl px-4 py-3'>Home</li>
-         </Link>
-        <Link to={`/coin`}>
-         <li className='font-semibold text-xl px-4 py-3'>All Coins</li>
-         </Link>
-        <Link to={`/team`}>
-         <li className='font-semibold text-xl px-4 py-3'>Team</li>
-         </Link>
-      </ul>
+    <div className="w-full bg-black border-b">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo Section */}
+          <div className="flex-shrink-0 w-32">
+            <Link to="/home" className="block">
+              <img src="/logo1.png" alt="logo" className="h-16 w-auto object-contain" />
+            </Link>
+          </div>
 
-      <div onClick={handleNav} className='block lg:hidden cursor-pointer z-20'>
-          {nav ? <AiOutlineClose size={20}/> : <AiOutlineMenu size={20} />}
+          {/* Desktop Navigation - Centered */}
+          <div className="hidden lg:flex flex-1 justify-center italic">
+            <nav className="flex space-x-8">
+              <Link 
+                to="/home"
+                className="text-gray-300 hover:text-white px-3 py-2 text font-medium transition-colors duration-150 ease-in-out"
+              >
+                Home
+              </Link>
+              <Link 
+                to="/coin"
+                className="text-gray-300 hover:text-white px-3 py-2 text font-medium transition-colors duration-150 ease-in-out"
+              >
+                All Coins
+              </Link>
+              <Link 
+                to="/team"
+                className="text-gray-300 hover:text-white px-3 py-2 text font-medium transition-colors duration-150 ease-in-out"
+              >
+                Team
+              </Link>
+            </nav>
+          </div>
+
+          {/* Right Section - Social Icons & Login */}
+          <div className="hidden lg:flex items-center space-x-6">
+            {/* Social Icons */}
+            <div className="flex items-center space-x-4">
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-white transition-colors duration-150 ease-in-out"
+              >
+                <Twitter size={20} />
+              </a>
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-white transition-colors duration-150 ease-in-out"
+              >
+                <Instagram size={20} />
+              </a>
+              <a 
+                href="#" 
+                className="text-gray-400 hover:text-white transition-colors duration-150 ease-in-out"
+              >
+                <Facebook size={20} />
+              </a>
+            </div>
+
+            {/* Login Button */}
+            <button className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-150 ease-in-out">
+              Login
+              {/* Connect wallet kit button */}
+            </button>
+          </div>
+
+          {/* Mobile menu button */}
+          <div className="lg:hidden">
+            <button
+              onClick={handleNav}
+              className="text-gray-400 hover:text-white p-2"
+            >
+              {nav ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
+        </div>
       </div>
 
-      <ul
-        className={`${
-          nav ? ' bg-opacity-80 fixed left-0 top-0 w-[60%] h-full border-r z-20 border-r-gray-900 bg-[#000300] ease-in-out duration-500' 
-          : 'ease-in-out duration-500 fixed left-[-100%]'
-        } lg:hidden`}>  
-      
-        <Link to={`/home`}>
-        <h1 className='w-full text-3xl font-bold text-[#33f781] m-4'>CRYPTIK.</h1>
-        </Link>
-        <li className='p-4 border-b border-gray-600 h-3'>&nbsp;</li>
-        <Link to={`/home`}>
-        <li className='p-4 border-b font-inter tracking-wide border-gray-600 text-[#fff]'>Home</li>
-        </Link>
-        <Link to={`/coin`}>
-        <li className='p-4 border-b font-inter border-gray-600 text-[#fff]'>All Coins</li>
-        </Link>
-        <Link to={`/team`}>
-        <li className='p-4 border-b font-inter border-gray-600 text-[#fff]'>Team</li>
-        </Link>
-      </ul>
+      {/* Mobile Navigation */}
+      <div className={`
+        lg:hidden fixed inset-0 z-50 bg-black bg-opacity-95 transition-transform duration-300 ease-in-out
+        ${nav ? 'translate-x-0' : '-translate-x-full'}
+      `}>
+        <div className="flex flex-col h-full">
+          <div className="flex items-center justify-between px-4 py-4 border-b border-gray-800">
+            <Link to="/home" className="block">
+              <img src="/logo1.png" alt="logo" className="h-12 w-auto object-contain" />
+            </Link>
+            <button
+              onClick={handleNav}
+              className="text-gray-400 hover:text-white p-2"
+            >
+              <X size={24} />
+            </button>
+          </div>
+          
+          <nav className="flex-1 px-4 py-6 space-y-4">
+            <Link 
+              to="/home" 
+              className="block text-lg text-gray-300 hover:text-white py-2"
+              onClick={handleNav}
+            >
+              Home
+            </Link>
+            <Link 
+              to="/coin" 
+              className="block text-lg text-gray-300 hover:text-white py-2"
+              onClick={handleNav}
+            >
+              All Coins
+            </Link>
+            <Link 
+              to="/team" 
+              className="block text-lg text-gray-300 hover:text-white py-2"
+              onClick={handleNav}
+            >
+              Team
+            </Link>
+          </nav>
+
+          <div className="px-4 py-6 border-t border-gray-800">
+            <div className="flex justify-center space-x-6 mb-6">
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Twitter size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Instagram size={24} />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Facebook size={24} />
+              </a>
+            </div>
+            <button className="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium">
+              Login
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

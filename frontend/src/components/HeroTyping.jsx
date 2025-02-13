@@ -1,7 +1,7 @@
 import React from "react";
 import { ReactTyped } from "react-typed";
 import { Link } from "react-router-dom";
-import { CircleArrowRight } from "lucide-react";
+import { LogIn  } from "lucide-react";
 
 const Hero1 = () => {
   return (
@@ -35,11 +35,11 @@ const Hero1 = () => {
         {/* CTA Link */}
         <Link
           to={`/coin`}
-          className="mt-6 inline-flex items-center gap-2 px-5 py-3 justify-center rounded-md  font-semibold text-white
+          className=" inline-flex items-center gap-2 px-5 py-3 justify-center rounded-md  font-semibold text-white
           hover:text-green-500 hover:border-green-500 transition-all duration-300"
         >
           All Coins
-          <CircleArrowRight size={18} className="" />
+          <LogIn  size={18} className="" />
         </Link>
       </div>
     </div>
