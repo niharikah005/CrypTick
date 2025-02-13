@@ -30,7 +30,7 @@ const Dashboard = () => {
   return (
     <div className="">
       <Hero1 />
-      <h1 className="text-2xl font-bold text-gray-800 mb-4">Top 10 Crypto Coins</h1>
+      <h1 className="text-2xl flex justify-center font-bold  m-4">Top 10 Crypto Coins</h1>
       {isLoading && <p className="text-center">Loading...</p>}
       {/* {isError && <p className="text-center text-red-500">Error loading data</p>} */}
       {top10Coins && top10Coins.length > 0 ? (
