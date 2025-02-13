@@ -28,7 +28,7 @@ const Dashboard = () => {
   const top10Coins = crypticCoin ? crypticCoin.slice(0, 10) : [];
 
   return (
-    <div className="p-6">
+    <div className="">
       <Hero1 />
       <h1 className="text-2xl font-bold text-gray-800 mb-4">Top 10 Crypto Coins</h1>
       {isLoading && <p className="text-center">Loading...</p>}

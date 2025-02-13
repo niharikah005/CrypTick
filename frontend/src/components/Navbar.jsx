@@ -10,7 +10,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className='flex bg-radial text-white from-[#2b0f5c] to-80% to-[#1d0544] justify-between items-center gap-47 h-22 px-20'>
+    <div className='flex bg-radial text-white bg-black justify-between items-center gap-47 h-22 px-20'>
       <div className='max-w-30 pt-3 ml-3'>
         <Link to={`/home`}>
         <img src="/logo1.png" alt="logo" className='h-full w-full object-contain' />      

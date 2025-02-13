@@ -15,7 +15,7 @@ const HeroSection = () => {
       };  
 
     return (
-        <div className='w-full bg-radial from-[#451795] to-[#12032b] text-white py-6 px-5'>
+        <div className='w-full bg-radial bg-black text-white py-6 px-5'>
             <div className='max-w-[1240px] mx-auto grid md:grid-cols-2'>
             <div className='w-[300px] mx-auto my-4 mr-auto' >
                 <Lottie options={defaultOptions} height={400} width={400} />
